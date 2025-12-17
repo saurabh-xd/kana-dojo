@@ -105,7 +105,7 @@ export default function SimpleProgress() {
           }}
           colorScheme='secondary'
           borderColorScheme='secondary'
-          borderBottomThickness={4}
+          borderBottomThickness={6}
           className='py-2 px-4 w-auto text-sm'
         >
           <Trash className='h-4 w-4' />
