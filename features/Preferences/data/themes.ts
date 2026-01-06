@@ -788,45 +788,45 @@ const baseThemeSets: BaseThemeGroup[] = [
       },
       {
         id: 'runousei',
-        backgroundColor: 'oklch(6.5% 0.027 256.5 / 1)', // graphite obsidian
-        mainColor: 'oklch(84.0% 0.190 145.0 / 1)', // starstream viridian
-        secondaryColor: 'oklch(82.0% 0.213 52.0 / 1)' // nova eruption orange
+        backgroundColor: 'oklch(6.5% 0.027 256.5 / 1)',
+        mainColor: 'oklch(84.0% 0.190 145.0 / 1)',
+        secondaryColor: 'oklch(82.0% 0.213 52.0 / 1)'
       },
       {
         id: 'sangosabi',
-        backgroundColor: 'oklch(21.0% 0.032 260.0 / 1)', // moonlit slate, soft and not too dark
-        mainColor: 'oklch(88.7% 0.216 145.0 / 1)', // wasabi green: vivid but not harsh
-        secondaryColor: 'oklch(90.0% 0.230 39.0 / 1)' // coral gold: radiant, lively coral-gold
+        backgroundColor: 'oklch(21.0% 0.032 260.0 / 1)',
+        mainColor: 'oklch(88.7% 0.216 145.0 / 1)',
+        secondaryColor: 'oklch(90.0% 0.230 39.0 / 1)'
       },
       {
         id: 'kureshio',
-        backgroundColor: 'oklch(23.0% 0.046 298.2 / 1)', // midnight lavender, gentle and accessible
-        mainColor: 'oklch(91.0% 0.210 225.5 / 1)', // surf blue: luminescent ocean blue
-        secondaryColor: 'oklch(90.0% 0.219 60.0 / 1)' // apricot: soft, energetic orange-yellow
+        backgroundColor: 'oklch(23.0% 0.046 298.2 / 1)',
+        mainColor: 'oklch(91.0% 0.210 225.5 / 1)',
+        secondaryColor: 'oklch(90.0% 0.219 60.0 / 1)'
       },
       {
         id: 'nirinsou',
-        backgroundColor: 'oklch(23.5% 0.039 285.0 / 1)', // starlit indigo-violet
-        mainColor: 'oklch(91.0% 0.235 143.0 / 1)', // wildflower lime (yellow-green)
-        secondaryColor: 'oklch(93.0% 0.198 60.0 / 1)' // dusk apricot (pastel orange)
+        backgroundColor: 'oklch(23.5% 0.039 285.0 / 1)',
+        mainColor: 'oklch(91.0% 0.235 143.0 / 1)',
+        secondaryColor: 'oklch(93.0% 0.198 60.0 / 1)'
       },
       {
         id: 'hoshishio',
-        backgroundColor: 'oklch(22.0% 0.038 300.0 / 1)', // cosmic twilight
-        mainColor: 'oklch(93.0% 0.220 163.0 / 1)', // stardust seafoam (minty green)
-        secondaryColor: 'oklch(91.0% 0.183 308.0 / 1)' // bright lavender
+        backgroundColor: 'oklch(22.0% 0.038 300.0 / 1)',
+        mainColor: 'oklch(93.0% 0.220 163.0 / 1)',
+        secondaryColor: 'oklch(91.0% 0.183 308.0 / 1)'
       },
       {
         id: 'aosora',
-        backgroundColor: 'oklch(21.5% 0.041 230.0 / 1)', // airy night slate
-        mainColor: 'oklch(94.0% 0.240 194.0 / 1)', // celestial turquoise
-        secondaryColor: 'oklch(92.5% 0.153 284.0 / 1)' // dreamlike pale periwinkle
+        backgroundColor: 'oklch(21.5% 0.041 230.0 / 1)',
+        mainColor: 'oklch(94.0% 0.240 194.0 / 1)',
+        secondaryColor: 'oklch(92.5% 0.153 284.0 / 1)'
       },
       {
         id: 'shirafuji',
-        backgroundColor: 'oklch(18.5% 0.042 306.0 / 1)',  // lunar wisteria
-        mainColor: 'oklch(96.0% 0.125 290.0 / 1)',        // pale blue-lavender
-        secondaryColor: 'oklch(98.0% 0.118 111.0 / 1)',   // icy yellow-white
+        backgroundColor: 'oklch(18.5% 0.042 306.0 / 1)',
+        mainColor: 'oklch(96.0% 0.125 290.0 / 1)',
+        secondaryColor: 'oklch(98.0% 0.118 111.0 / 1)'
       }
     ]
   },
