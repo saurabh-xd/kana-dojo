@@ -36,15 +36,32 @@ const analysisCache = new Map<
 >();
 const CACHE_TTL = 1000 * 60 * 60; // 1 hour
 const MAX_CACHE_SIZE = 200;
+const CLEANUP_INTERVAL = 1000 * 60 * 5; // Cleanup every 5 minutes
+let lastCleanupTime = 0;
 
+/**
+ * Clean up expired cache entries
+ * Runs periodically and when cache exceeds max size
+ */
 function cleanupCache() {
-  if (analysisCache.size > MAX_CACHE_SIZE) {
-    const now = Date.now();
+  const now = Date.now();
+
+  // Run TTL cleanup periodically
+  if (now - lastCleanupTime > CLEANUP_INTERVAL) {
+    lastCleanupTime = now;
     for (const [key, value] of analysisCache) {
       if (now - value.timestamp > CACHE_TTL) {
         analysisCache.delete(key);
       }
     }
+  }
+
+  // If still too large, remove oldest entries (LRU-style eviction)
+  if (analysisCache.size > MAX_CACHE_SIZE) {
+    const entries = Array.from(analysisCache.entries());
+    entries.sort((a, b) => a[1].timestamp - b[1].timestamp);
+    const toRemove = entries.slice(0, entries.length - MAX_CACHE_SIZE / 2);
+    toRemove.forEach(([key]) => analysisCache.delete(key));
   }
 }
 

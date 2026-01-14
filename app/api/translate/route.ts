@@ -12,26 +12,36 @@ const translationCache = new Map<
 >();
 const CACHE_TTL = 1000 * 60 * 60; // 1 hour cache
 const MAX_CACHE_SIZE = 500;
+const CLEANUP_INTERVAL = 1000 * 60 * 5; // Cleanup every 5 minutes
+let lastCleanupTime = 0;
 
 function getCacheKey(text: string, source: string, target: string): string {
   return `${source}:${target}:${text}`;
 }
 
+/**
+ * Clean up expired cache entries
+ * Runs periodically and when cache exceeds max size
+ */
 function cleanupCache() {
-  if (translationCache.size > MAX_CACHE_SIZE) {
-    const now = Date.now();
+  const now = Date.now();
+
+  // Run TTL cleanup periodically (not on every request to avoid overhead)
+  if (now - lastCleanupTime > CLEANUP_INTERVAL) {
+    lastCleanupTime = now;
     for (const [key, value] of translationCache) {
       if (now - value.timestamp > CACHE_TTL) {
         translationCache.delete(key);
       }
     }
-    // If still too large, remove oldest entries
-    if (translationCache.size > MAX_CACHE_SIZE) {
-      const entries = Array.from(translationCache.entries());
-      entries.sort((a, b) => a[1].timestamp - b[1].timestamp);
-      const toRemove = entries.slice(0, entries.length - MAX_CACHE_SIZE / 2);
-      toRemove.forEach(([key]) => translationCache.delete(key));
-    }
+  }
+
+  // If still too large, remove oldest entries (LRU-style eviction)
+  if (translationCache.size > MAX_CACHE_SIZE) {
+    const entries = Array.from(translationCache.entries());
+    entries.sort((a, b) => a[1].timestamp - b[1].timestamp);
+    const toRemove = entries.slice(0, entries.length - MAX_CACHE_SIZE / 2);
+    toRemove.forEach(([key]) => translationCache.delete(key));
   }
 }
 
